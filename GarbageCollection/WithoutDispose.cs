@@ -14,7 +14,7 @@ public class WithoutDispose
     {
         _stopwatch.Stop();
         
-        Interlocked.Increment(ref Program.FinalisedObjects);
+        Interlocked.Increment(ref Program.FinalizedObjects);
         
         Interlocked.Add(ref Program.TotalTime, _stopwatch.ElapsedMilliseconds);
     }
@@ -28,3 +28,4 @@ public class WithoutDispose
         }
     }
 }
+

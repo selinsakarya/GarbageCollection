@@ -1,24 +1,28 @@
 ﻿public class Program
 {
-    public static long FinalisedObjects = 0;
+    public static long FinalizedObjects = 0;
     
     public static long TotalTime = 0;
     
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
 
         for (int i = 0; i < 500000; i++)
         {
-            WithoutDispose obj = new WithoutDispose();
-            
-            obj.DoWork();
+            // WithoutDispose obj = new WithoutDispose();
+            // obj.DoWork();
+
+            using (WithDispose disposableObj = new WithDispose())
+            {
+                disposableObj.DoWork();
+            }
         }
 
-        Console.WriteLine($"Number of finalised objects: {FinalisedObjects/1000}K");
+        Console.WriteLine($"Number of finalized objects: {FinalizedObjects/1000}K");
         
-        double averageObjectLifeTime = 1.0 * TotalTime / FinalisedObjects;
+        double averageObjectLifeTime = 1.0 * TotalTime / FinalizedObjects;
         
-        Console.WriteLine($"Average resource lifetime: {averageObjectLifeTime}");
+        Console.WriteLine($"Average resource lifetime: {averageObjectLifeTime} ms");
     }
 }
