@@ -4,7 +4,7 @@
     
     public static long TotalTime = 0;
     
-    public static async Task Main(string[] args)
+    public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
 
