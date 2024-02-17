@@ -7,6 +7,7 @@ public class WithoutDispose
     public WithoutDispose()
     {
         _stopwatch = new Stopwatch();
+        _stopwatch.Start();
     }
 
     ~WithoutDispose()
