@@ -50,13 +50,3 @@
         Console.WriteLine($"Average resource lifetime: {averageObjectLifeTime} ms");
     }
 }
-
-public struct PersonStruct
-{
-    public string Name { get; set; }
-}
-
-public class PersonClass
-{
-    public string Name { get; set; }
-}
