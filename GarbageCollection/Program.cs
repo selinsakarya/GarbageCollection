@@ -1,10 +1,34 @@
 ﻿public class Program
 {
     public static long FinalizedObjects = 0;
-    
+
     public static long TotalTime = 0;
-    
+
     public static void Main(string[] args)
+    {
+        // ObjectLifeTimeExample();
+
+        // ClassVsStruct();
+
+        Console.WriteLine("asd");
+    }
+
+    private static void ClassVsStruct()
+    {
+        PersonClass personClass = new PersonClass
+        {
+            Name = "Selin 2"
+        };
+
+        PersonStruct personStruct = new PersonStruct
+        {
+            Name = "Selin"
+        };
+
+        Console.WriteLine("asd");
+    }
+
+    private static void ObjectLifeTimeExample()
     {
         Console.WriteLine("Hello, World!");
 
@@ -19,10 +43,20 @@
             }
         }
 
-        Console.WriteLine($"Number of finalized objects: {FinalizedObjects/1000}K");
-        
+        Console.WriteLine($"Number of finalized objects: {FinalizedObjects / 1000}K");
+
         double averageObjectLifeTime = 1.0 * TotalTime / FinalizedObjects;
-        
+
         Console.WriteLine($"Average resource lifetime: {averageObjectLifeTime} ms");
     }
+}
+
+public struct PersonStruct
+{
+    public string Name { get; set; }
+}
+
+public class PersonClass
+{
+    public string Name { get; set; }
 }
